@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "PrepContoso"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "01b2c513-1e21-9b80-4a55-ba834763d9b2"
+  }
+}

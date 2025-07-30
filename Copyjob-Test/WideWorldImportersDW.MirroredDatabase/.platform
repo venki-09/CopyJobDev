@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MirroredDatabase",
+    "displayName": "WideWorldImportersDW"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3a0ecf34-60db-828c-4a3b-273d770cd864"
+  }
+}

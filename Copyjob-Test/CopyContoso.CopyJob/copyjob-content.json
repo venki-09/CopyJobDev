@@ -1,0 +1,336 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "d5020a51-1ced-9aa0-4ea8-e48caa8f14b9",
+          "rootFolder": "Tables"
+        }
+      }
+    },
+    "destination": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "e5334c04-f4e5-471a-b6b4-4a1d4120d0c0",
+          "artifactId": "7eb68709-688d-4d83-9088-51186e7be8f6",
+          "endPoint": "pangv7sx3caurefkon7bpplm7q-argdhzpf6qnepnvujioucigqya.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00"
+    }
+  },
+  "activities": [
+    {
+      "id": "3c6da633-b3df-4aa8-a98d-a6c3db4818d0",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "table": "DimDate"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "DimDate"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "d38e8d24-03c4-469d-a8a5-0ff02b62cdb6",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "table": "DimEmployee"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "DimEmployee"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "e0f4dbee-cae6-46f8-870d-1bc5c8ca733d",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "table": "DimStore"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "DimStore"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "StoreKey",
+                "type": "Int32",
+                "physicalType": "integer"
+              },
+              "destination": {
+                "name": "StoreKey",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "GeographyKey",
+                "type": "Int32",
+                "physicalType": "integer"
+              },
+              "destination": {
+                "name": "GeographyKey",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "StoreManager",
+                "type": "Int32",
+                "physicalType": "integer"
+              },
+              "destination": {
+                "name": "StoreManager",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "StoreType",
+                "type": "String",
+                "physicalType": "string"
+              },
+              "destination": {
+                "name": "StoreType",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "StoreName",
+                "type": "String",
+                "physicalType": "string"
+              },
+              "destination": {
+                "name": "StoreName",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "StoreDescription",
+                "type": "String",
+                "physicalType": "string"
+              },
+              "destination": {
+                "name": "StoreDescription",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "Status",
+                "type": "String",
+                "physicalType": "string"
+              },
+              "destination": {
+                "name": "Status",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "OpenDate",
+                "type": "DateTime",
+                "physicalType": "timestamp"
+              },
+              "destination": {
+                "name": "OpenDate",
+                "physicalType": "datetime2",
+                "precision": 6
+              }
+            },
+            {
+              "source": {
+                "name": "CloseDate",
+                "type": "DateTime",
+                "physicalType": "timestamp"
+              },
+              "destination": {
+                "name": "CloseDate",
+                "physicalType": "datetime2",
+                "precision": 6
+              }
+            },
+            {
+              "source": {
+                "name": "EntityKey",
+                "type": "Int32",
+                "physicalType": "integer"
+              },
+              "destination": {
+                "name": "EntityKey",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "ZipCode",
+                "type": "Double",
+                "physicalType": "double"
+              },
+              "destination": {
+                "name": "ZipCode",
+                "physicalType": "float"
+              }
+            },
+            {
+              "source": {
+                "name": "ZipCodeExtension",
+                "type": "Double",
+                "physicalType": "double"
+              },
+              "destination": {
+                "name": "ZipCodeExtension",
+                "physicalType": "float"
+              }
+            },
+            {
+              "source": {
+                "name": "StorePhone",
+                "type": "String",
+                "physicalType": "string"
+              },
+              "destination": {
+                "name": "StorePhone",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "StoreFax",
+                "type": "String",
+                "physicalType": "string"
+              },
+              "destination": {
+                "name": "StoreFax",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "AddressLine1",
+                "type": "String",
+                "physicalType": "string"
+              },
+              "destination": {
+                "name": "AddressLine1",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "AddressLine2",
+                "type": "String",
+                "physicalType": "string"
+              },
+              "destination": {
+                "name": "AddressLine2",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "CloseReason",
+                "type": "String",
+                "physicalType": "string"
+              },
+              "destination": {
+                "name": "CloseReason",
+                "physicalType": "varchar",
+                "length": "8000"
+              }
+            },
+            {
+              "source": {
+                "name": "SellingAreaSize",
+                "type": "Int32",
+                "physicalType": "integer"
+              },
+              "destination": {
+                "name": "SellingAreaSize",
+                "physicalType": "int"
+              }
+            },
+            {
+              "source": {
+                "name": "LastRemodelDate",
+                "type": "DateTime",
+                "physicalType": "timestamp"
+              },
+              "destination": {
+                "name": "LastRemodelDate",
+                "physicalType": "datetime2",
+                "precision": 6
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

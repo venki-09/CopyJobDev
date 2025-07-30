@@ -1,0 +1,92 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "PrepContoso",
+  "queryGroups": [
+    {
+      "id": "bc9aa574-4f43-44ee-bdf2-e628a8c0e9c3",
+      "name": "Data reference",
+      "description": "Data used only as a source from the silver lakehouse"
+    },
+    {
+      "id": "def65161-1afd-4f8a-86fe-203f8921c213",
+      "name": "Data load",
+      "description": "Data loaded to the gold warehouse",
+      "order": 1
+    }
+  ],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DimCustomer": {
+      "queryId": "9a2d1e24-84a4-49bc-a388-c5263c7033c7",
+      "queryName": "DimCustomer",
+      "queryGroupId": "bc9aa574-4f43-44ee-bdf2-e628a8c0e9c3"
+    },
+    "DimGeography": {
+      "queryId": "96b0f53e-17e7-45fc-86ae-c80e2e63777a",
+      "queryName": "DimGeography",
+      "queryGroupId": "bc9aa574-4f43-44ee-bdf2-e628a8c0e9c3"
+    },
+    "DimProduct": {
+      "queryId": "9abf9ad1-72e2-4e8d-b8d1-cc9a9d24119e",
+      "queryName": "DimProduct",
+      "queryGroupId": "bc9aa574-4f43-44ee-bdf2-e628a8c0e9c3"
+    },
+    "DimProductCategory": {
+      "queryId": "27fcff23-ec31-4be7-9e39-2e29e77eac99",
+      "queryName": "DimProductCategory",
+      "queryGroupId": "bc9aa574-4f43-44ee-bdf2-e628a8c0e9c3"
+    },
+    "DimProductSubcategory": {
+      "queryId": "2f924827-6cc0-4505-b474-e731039dd90c",
+      "queryName": "DimProductSubcategory",
+      "queryGroupId": "bc9aa574-4f43-44ee-bdf2-e628a8c0e9c3"
+    },
+    "FactOnlineSales": {
+      "queryId": "2f4bb973-01f1-4b41-ba59-e6d7e5135840",
+      "queryName": "FactOnlineSales",
+      "queryGroupId": "def65161-1afd-4f8a-86fe-203f8921c213"
+    },
+    "DimCustomers": {
+      "queryId": "7a1126d4-8576-48d9-8c38-588f93eb24ff",
+      "queryName": "DimCustomers",
+      "queryGroupId": "def65161-1afd-4f8a-86fe-203f8921c213"
+    },
+    "DimProducts": {
+      "queryId": "26935d70-0264-4a0d-b069-5d31e30a48b5",
+      "queryName": "DimProducts",
+      "queryGroupId": "def65161-1afd-4f8a-86fe-203f8921c213"
+    },
+    "FactOnlineSales_DataDestination": {
+      "queryId": "600f5a2e-a566-44dc-9dae-460510912c89",
+      "queryName": "FactOnlineSales_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "DimCustomers_DataDestination": {
+      "queryId": "bc2b9527-da1a-4db4-8c23-cf270c9d7304",
+      "queryName": "DimCustomers_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "DimProducts_DataDestination": {
+      "queryId": "47bfb5a7-a5c6-4163-bbdf-fc6c58cf25ef",
+      "queryName": "DimProducts_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"926e53b4-a136-408d-8f62-326676b94b14\",\"DatasourceId\":\"a12035b3-53dc-465b-8087-5d5f4ff47731\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"926e53b4-a136-408d-8f62-326676b94b14\",\"DatasourceId\":\"c5bf988a-4885-4765-a0c5-b192d71192e8\"}"
+    }
+  ],
+  "parametric": true
+}

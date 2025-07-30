@@ -1,0 +1,27 @@
+CREATE TABLE [dbo].[DimCustomers] (
+
+	[CustomerKey] int NULL, 
+	[GeographyKey] int NULL, 
+	[FirstName] varchar(8000) NULL, 
+	[MiddleName] varchar(8000) NULL, 
+	[LastName] varchar(8000) NULL, 
+	[BirthDate] varchar(8000) NULL, 
+	[MaritalStatus] varchar(8000) NULL, 
+	[Suffix] varchar(8000) NULL, 
+	[Title] varchar(8000) NULL, 
+	[EmailAddress] varchar(8000) NULL, 
+	[YearlyIncome] float NULL, 
+	[Education] varchar(8000) NULL, 
+	[Occupation] varchar(8000) NULL, 
+	[AddressLine1] varchar(8000) NULL, 
+	[AddressLine2] varchar(8000) NULL, 
+	[Phone] varchar(8000) NULL, 
+	[DateFirstPurchase] varchar(8000) NULL, 
+	[CustomerType] varchar(8000) NULL, 
+	[GeographyType] varchar(8000) NULL, 
+	[ContinentName] varchar(8000) NULL, 
+	[CityName] varchar(8000) NULL, 
+	[StateProvinceName] varchar(8000) NULL, 
+	[RegionCountryName] varchar(8000) NULL, 
+	[Geometry] varchar(8000) NULL
+);

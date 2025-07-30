@@ -1,0 +1,25 @@
+CREATE TABLE [dbo].[DimEmployee] (
+
+	[EmployeeKey] int NULL, 
+	[FirstName] varchar(8000) NULL, 
+	[LastName] varchar(8000) NULL, 
+	[MiddleName] varchar(8000) NULL, 
+	[Title] varchar(8000) NULL, 
+	[HireDate] date NULL, 
+	[BirthDate] date NULL, 
+	[EmailAddress] varchar(8000) NULL, 
+	[Phone] varchar(8000) NULL, 
+	[MaritalStatus] varchar(8000) NULL, 
+	[EmergencyContactName] varchar(8000) NULL, 
+	[EmergencyContactPhone] varchar(8000) NULL, 
+	[SalariedFlag] int NULL, 
+	[Gender] varchar(8000) NULL, 
+	[PayFrequency] int NULL, 
+	[BaseRate] float NULL, 
+	[VacationHours] int NULL, 
+	[SalesPersonFlag] int NULL, 
+	[DepartmentName] varchar(8000) NULL, 
+	[StartDate] date NULL, 
+	[EndDate] date NULL, 
+	[StoreKey] int NULL
+);
