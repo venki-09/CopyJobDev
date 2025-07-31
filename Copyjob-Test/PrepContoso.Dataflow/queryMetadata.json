@@ -74,6 +74,17 @@
       "queryName": "DimProducts_DataDestination",
       "isHidden": true,
       "loadEnabled": false
+    },
+    "Warehouse": {
+      "queryId": "6a708a56-852e-4ae6-bff2-6693081c1250",
+      "queryName": "Warehouse",
+      "loadEnabled": false
+    },
+    "DefaultDestination": {
+      "queryId": "64811404-6abc-4305-9da5-555b2168bf28",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
     }
   },
   "connections": [

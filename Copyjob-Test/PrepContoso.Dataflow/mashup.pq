@@ -1,12 +1,13 @@
-[StagingDefinition = [Kind = "FastCopy"]]
+[DefaultOutputDestinationSettings = [DestinationDefinition = [Kind = "Reference", QueryName = "DefaultDestination", IsNewTarget = true], UpdateMethod = [Kind = "Append"], DestinationTypeSettings = [Kind = "Table"]], StagingDefinition = [Kind = "FastCopy"]]
 section Section1;
 shared DimCustomer = let
   Source = Lakehouse.Contents(null),
   Navigation = Source{[workspaceId = "e5334c04-f4e5-471a-b6b4-4a1d4120d0c0"]}[Data],
   #"Navigation 1" = Navigation{[lakehouseId = "aa8f14b9-e48c-4ea8-9aa0-1cedd5020a51"]}[Data],
-  #"Navigation 2" = #"Navigation 1"{[Id = "DimCustomer", ItemKind = "Table"]}[Data]
+  #"Navigation 2" = #"Navigation 1"{[Id = "DimCustomer", ItemKind = "Table"]}[Data],
+  #"Filtered rows" = Table.SelectRows(#"Navigation 2", each [GeographyKey] = 586)
 in
-  #"Navigation 2";
+  #"Filtered rows";
 shared DimGeography = let
   Source = Lakehouse.Contents(null),
   Navigation = Source{[workspaceId = "e5334c04-f4e5-471a-b6b4-4a1d4120d0c0"]}[Data],
@@ -78,3 +79,10 @@ shared DimProducts_DataDestination = let
   TableNavigation = Navigation_2{[Item = "DimProducts", Schema = "dbo"]}?[Data]?
 in
   TableNavigation;
+shared Warehouse = "SalesData" meta [IsParameterQuery = true, IsParameterQueryRequired = false, Type = type any, DefaultValue = ""];
+shared DefaultDestination = let
+  Source = Fabric.Warehouse([CreateNavigationProperties = false]),
+  Navigation = Source{[workspaceId = "e5334c04-f4e5-471a-b6b4-4a1d4120d0c0"]}[Data],
+  #"Navigation 1" = Navigation{[warehouseId = "7eb68709-688d-4d83-9088-51186e7be8f6"]}[Data]
+in
+  #"Navigation 1";
